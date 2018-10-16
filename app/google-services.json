@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "610364399071",
+    "firebase_url": "https://allofit-7a72f.firebaseio.com",
+    "project_id": "allofit-7a72f",
+    "storage_bucket": "allofit-7a72f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610364399071:android:38b1385b2a314e7f",
+        "android_client_info": {
+          "package_name": "com.example.mv.allofit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610364399071-k76hb72qbtnskvaleh2d4diehohicd7o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mv.allofit",
+            "certificate_hash": "0e8a97416fc8791edc4e577faa85f232fef23b4c"
+          }
+        },
+        {
+          "client_id": "610364399071-qkm3cno66fo0p42uhmagbqv0at1b5qha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaDuOyKpeCWfVBPoQNmkZK1RZDsDwaty4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610364399071-qkm3cno66fo0p42uhmagbqv0at1b5qha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
