@@ -6,6 +6,7 @@
     <string name="nav_header_title">AlloFit</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
 
     <string name="drawer_item_persistent_compact_header">PersistentHeader Drawer</string>
     <string name="drawer_item_persistent_compact_header_desc">Smaller persistent account header</string>
@@ -47,4 +48,15 @@
     <string name="drawer_item_help">Help</string>
     <string name="drawer_item_open_source">Open Source</string>
     <string name="drawer_item_contact">Contact</string>
+
+    <!-- Diet Plan -->
+    <string name="exercise_prompt">Choose your type of Work</string>
+    <string-array name="exercise">
+        <item>1. Sedentary - No Exercise</item>
+        <item>2. Lightly Active - Little Bit Exercise</item>
+        <item>3. Moderately Active - Exercise/Sports</item>
+        <item>4. Very Active - Hard Exercise/Daily Sports</item>
+        <item>5. Extremely Active - Very hard Exercise/ Physical Job</item>
+    </string-array>
+    <string name="title_activity_maps">Nearby Hospitals</string>
 </resources>

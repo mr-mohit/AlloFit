@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
@@ -14,25 +15,34 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.mv.allofit.Diet_Plan.Bmi;
+import com.example.mv.allofit.Workout.Workout_main;
+import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.util.ExtraConstants;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthProvider;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserInfo;
-import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -45,19 +55,29 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main_page extends AppCompatActivity implements SensorEventListener
 {
     private static final int PROFILE_SETTING = 1;
+    private static final String TAG="Main_page";
     Drawer result;
     AccountHeader headerResult;
     private IProfile profile;
-    TextView stepcount;
-    private SensorManager mSensorManager;
+    TextView stepcount,miles;
+    SensorManager mSensorManager;
     private Sensor mSensor;
     boolean isrunning=false;
+    MaterialButton reset;
+    int stepsInsensor,startingCount,steps;
+    float distance;
+    DecimalFormat f;
+    SharedPreferences prefs;
+    View Rootview;
+    Intent i;
+    PackageManager pm;
     @NonNull
     public static Intent createIntent(@NonNull Context context, @Nullable IdpResponse response) {
         return new Intent().setClass(context, Main_page.class).putExtra(ExtraConstants.IDP_RESPONSE, response);
@@ -68,10 +88,32 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         stepcount=findViewById(R.id.stepcount);
+        miles=findViewById(R.id.miles);
+        reset=findViewById(R.id.reset);
+        Rootview=findViewById(android.R.id.content);
+        f=new DecimalFormat("#0.#");
         setSupportActionBar(toolbar);
-        PackageManager pm= getApplicationContext().getPackageManager();
+        pm= getApplicationContext().getPackageManager();
+        mSensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if(hasSensors(pm)){
-            mSensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
+            //mSensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
+            Toast.makeText(this, "Sensor Manager Intialized", Toast.LENGTH_SHORT).show();
+            prefs=getSharedPreferences("Sensor_Data",MODE_PRIVATE);
+            if(!prefs.contains("Sensor_Data")){
+                SharedPreferences.Editor editor=prefs.edit();
+                editor.putInt("step_count",stepsInsensor);
+                editor.apply();
+            }
+            reset.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SharedPreferences.Editor editor=prefs.edit();
+                    editor.putInt("step_count",stepsInsensor);
+                    editor.apply();
+                    stepcount.setText("0");
+                    miles.setText("0");
+                }
+            });
         }else
         {
             new AlertDialog.Builder(getApplicationContext()).setTitle("No sensor Found")
@@ -96,7 +138,11 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
         }
         IdpResponse response = getIntent().getParcelableExtra(ExtraConstants.IDP_RESPONSE);
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_home);
-        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_settings);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Home Remedies");
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName("Nearby Hospitals");
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(4).withName("Body Mass Index(BMI)");
+        PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(6).withName("WorkOut Plan");
+        SecondaryDrawerItem item5 = new SecondaryDrawerItem().withIdentifier(5).withName(R.string.drawer_item_settings);
         populateProfile(response,savedInstanceState);
         result = new DrawerBuilder()
                 .withActivity(this)
@@ -104,26 +150,64 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
                         item1,
+                        item2,
+                        item3,
+                        item4,
+                        item6,
                         new DividerDrawerItem(),
-                        item2
+                        item5
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         // do something with the clicked item :D
+                        if(drawerItem.getIdentifier()==2){
+                            i=new Intent(Main_page.this,home_remedy.class);
+                            startActivity(i);
+                        }
+                        if(drawerItem.getIdentifier()==4){
+                            i=new Intent(Main_page.this,Bmi.class);
+                            startActivity(i);
+                        }
+                        if(drawerItem.getIdentifier()==3){
+                            i=new Intent(Main_page.this,MapsActivity.class);
+                            startActivity(i);
+                        }
+                        if(drawerItem.getIdentifier()==6){
+                            i=new Intent(Main_page.this,Workout_main.class);
+                            startActivity(i);
+                        }
+                        Toast.makeText(Main_page.this, "You clicked - "+position, Toast.LENGTH_SHORT).show();
                         return false;
                     }
                 })
                 .build();
-
-
+       DataBaseHelper db=new DataBaseHelper(this);
+       //db.createDataBase();
+        Toast.makeText(this, "DB Location: "+DataBaseHelper.DB_PATH, Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onResume() {
         super.onResume();
         isrunning=true;
-        mSensor=mSensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-        mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        if(hasSensors(pm)) {
+            mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+            mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        }else{
+            new AlertDialog.Builder(getApplicationContext()).setTitle("No sensor Found")
+                    .setMessage("You device does not have a dedicated sensor to run this Application")
+                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(final DialogInterface dialogInterface) {
+                            finish();
+                        }
+                    }).setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(final DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            }).create().show();
+        }
     }
 
     @Override
@@ -176,9 +260,8 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
                 })
                 .withSavedInstance(savedInstanceState)
                 .build();
-
-
     }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         //add the values which need to be saved from the drawer to the bundle
@@ -186,6 +269,22 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
         super.onSaveInstanceState(outState);
     }
 
+    public void signOut() {
+        AuthUI.getInstance()
+                .signOut(this)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            startActivity(MainActivity.createIntent(Main_page.this));
+                            finish();
+                        } else {
+                            Log.w(TAG, "signOut:failure", task.getException());
+                            showSnackbar("Sign out Failed");
+                        }
+                    }
+                });
+    }
 
 
     @Override
@@ -206,6 +305,9 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
         if (id == R.id.action_settings) {
             return true;
         }
+        if(id==R.id.logout){
+            signOut();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -221,8 +323,14 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if(isrunning)
-        stepcount.setText(String.valueOf(sensorEvent.values[0]));
+        if(isrunning) {
+            stepsInsensor=(int) sensorEvent.values[0];
+            startingCount=prefs.getInt("step_count",0);
+            steps=stepsInsensor-startingCount;
+            stepcount.setText(String.valueOf(steps));
+            distance = (float)(steps*78)/(float)100000;
+            miles.setText(String.valueOf(f.format(distance)));
+        }
     }
 
     @Override
@@ -238,5 +346,8 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
                 && pm.hasSystemFeature (PackageManager.FEATURE_SENSOR_STEP_COUNTER)
                 && pm.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR);
 
+    }
+    private void showSnackbar(String errorMessage) {
+        Snackbar.make(Rootview, errorMessage, Snackbar.LENGTH_LONG).show();
     }
 }

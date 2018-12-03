@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mv.allofit">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.sensor.step_counter"/>
+
+    <uses-feature android:name="android.hardware.sensor.step_counter" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,17 +23,83 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".Main_page"
             android:label="@string/title_activity_main_page"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".home_remedy"
+            android:parentActivityName=".Main_page" />
+        <activity android:name=".Remedy_desc" />
+        <activity
+            android:name=".Diet_Plan.Bmi"
+            android:parentActivityName=".Main_page"
+            android:theme="@style/CustomTheme" />
+        <activity
+            android:name=".Diet_Plan.CalorieNeededDietPlan"
+            android:theme="@style/CustomTheme" />
+        <activity
+            android:name=".Diet_Plan.Diet_Foods"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Intro"
+            android:label="@string/app_name"/>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".Workout.Workout_main"
+            android:theme="@style/CustomTheme"/>
+        <activity android:name=".Workout.Workout_men"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.Workout_women"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.menchest"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.menbiceps"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.mentriceps"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.menback"
+            android:theme="@style/CustomTheme"/>
+        <activity android:name=".Workout.menshoulder"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.menabs"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.menlegs"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.womenabs"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.womenback"
+            android:theme="@style/CustomTheme"/>
+        <activity android:name=".Workout.womenbiceps"
+            android:theme="@style/CustomTheme"/>
+        <activity android:name=".Workout.womenchest"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.womenlegs"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.womenshoulder"
+            android:theme="@style/CustomTheme" />
+        <activity android:name=".Workout.womentriceps"
+            android:theme="@style/CustomTheme"/>
     </application>
 
 </manifest>

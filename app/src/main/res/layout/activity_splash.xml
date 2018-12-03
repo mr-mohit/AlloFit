@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/lp1"
+    tools:context=".Splash">
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im1"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_icon" />
+        <TextView
+            android:textColor="#FFFFA340"
+            android:layout_width="398dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ALLOFIT- Stay Always Fit"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_marginTop="50dp"/>
+
+        <com.agrawalsuneet.loaderspack.loaders.PulseLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="15dp"
+            app:pulse_LineThickness="4dp"
+            app:pulse_normalIncrementalValue="4.0"
+            app:pulse_pulseColor="@android:color/holo_blue_bright"
+            app:pulse_pulseIncrementalValue="10.0"
+            app:pulse_sideLength="50dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/runner"
+            android:layout_height="170dp" />
+    </LinearLayout>
+</LinearLayout>

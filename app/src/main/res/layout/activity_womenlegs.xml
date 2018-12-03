@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Workout.womenlegs">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1  Leg Extensions"
+            android:textSize="28sp"
+            android:padding="18dp"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="      15-20 reps or to failure"
+            android:textSize="28sp"
+            android:textColor="#000000"/>
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+            <ImageView
+
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/wl1"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="2  Lying Leg Curls"
+            android:textSize="28sp"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="   15-20 reps or to failure"
+            android:textSize="28sp"/>
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+            <ImageView
+
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/wl2"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="3 Wide-Stance Barbell Squat"
+            android:textSize="28sp"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="   10 sets, 10 reps"
+            android:textSize="28sp"/>
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+            <ImageView
+
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/wl3"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="4 Barbell Deadlift"
+            android:textSize="28sp"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="   3 sets, 12,10,8 reps"
+            android:textSize="28sp"/>
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/wl4"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
