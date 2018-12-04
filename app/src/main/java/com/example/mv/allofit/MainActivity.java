@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity  {
         IntroManager introManager=new IntroManager(getBaseContext());
         if(introManager.isFirstTimeLaunch()){
             introManager.setFirstTimeLaunch(false);
-            Toast.makeText(this, "AAya va if vich", Toast.LENGTH_LONG).show();
             startActivity(new Intent(getBaseContext(),Intro.class));
             finish();
         }

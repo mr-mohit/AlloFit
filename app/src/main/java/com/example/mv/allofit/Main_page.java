@@ -142,6 +142,7 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
         PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName("Nearby Hospitals");
         PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(4).withName("Body Mass Index(BMI)");
         PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(6).withName("WorkOut Plan");
+        PrimaryDrawerItem item7 = new PrimaryDrawerItem().withIdentifier(7).withName("Water Reminder");
         SecondaryDrawerItem item5 = new SecondaryDrawerItem().withIdentifier(5).withName(R.string.drawer_item_settings);
         populateProfile(response,savedInstanceState);
         result = new DrawerBuilder()
@@ -154,6 +155,7 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
                         item3,
                         item4,
                         item6,
+                        item7,
                         new DividerDrawerItem(),
                         item5
                 )
@@ -166,7 +168,7 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
                             startActivity(i);
                         }
                         if(drawerItem.getIdentifier()==4){
-                            i=new Intent(Main_page.this,Bmi.class);
+                            i=new Intent(Main_page.this,com.example.mv.allofit.Diet_Plan.Bmi.class);
                             startActivity(i);
                         }
                         if(drawerItem.getIdentifier()==3){
@@ -175,6 +177,10 @@ public class Main_page extends AppCompatActivity implements SensorEventListener
                         }
                         if(drawerItem.getIdentifier()==6){
                             i=new Intent(Main_page.this,Workout_main.class);
+                            startActivity(i);
+                        }
+                        if(drawerItem.getIdentifier()==7){
+                            i=new Intent(Main_page.this, a2dv606.androidproject.MainWindow.MainActivity.class);
                             startActivity(i);
                         }
                         Toast.makeText(Main_page.this, "You clicked - "+position, Toast.LENGTH_SHORT).show();

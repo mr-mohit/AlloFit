@@ -15,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RemedyAdapter extends RecyclerView.Adapter<RemedyAdapter.ViewHolder> implements Filterable {
+    public interface RemedyAdapterListener{
+        void OnRemedySelected(remedy Remedy);
+    }
     private Context context;
     private List<remedy> remedyList;
     private List<remedy> filteredremedyList;
@@ -95,7 +98,6 @@ public class RemedyAdapter extends RecyclerView.Adapter<RemedyAdapter.ViewHolder
         };
     }
 
-    public interface RemedyAdapterListener{
-        void OnRemedySelected(remedy Remedy);
-    }
+
 }
+

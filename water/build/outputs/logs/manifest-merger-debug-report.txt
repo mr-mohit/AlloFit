@@ -1,0 +1,169 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:1-75:12
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:1-75:12
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:1-75:12
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:1-75:12
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:1-75:12
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:1-75:12
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:1-75:12
+	package
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:3:5-37
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:1-75:12
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:1-75:12
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:5:5-81
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:5:22-78
+uses-permission#com.android.alarm.permission.SET_ALARM
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:6:5-78
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:6:22-75
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:7:5-68
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:7:22-65
+uses-permission#android.permission.SEND_SMS
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:8:22-64
+application
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:10:5-73:19
+	android:supportsRtl
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:13:9-41
+	android:icon
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:12:9-42
+	android:allowBackup
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:11:9-35
+	android:theme
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:15:9-40
+activity#a2dv606.androidproject.SplashScreen
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:16:9-50
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:16:19-47
+activity#a2dv606.androidproject.WaterDrankHistory.DateLogActivity
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:17:9-18:48
+	android:theme
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:18:13-46
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:17:19-68
+activity#a2dv606.androidproject.WaterDrankHistory.TimeLogActivity
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:19:9-20:48
+	android:theme
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:20:13-46
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:19:19-68
+activity#a2dv606.androidproject.Settings.SettingsActivity
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:21:9-22:48
+	android:theme
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:22:13-46
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:21:19-60
+activity#a2dv606.androidproject.OutlinesFragments.OutlineActivity
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:23:9-32:20
+	android:theme
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:24:13-46
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:23:19-68
+intent-filter#action:name:android.intent.action.SENDTO+category:name:android.intent.category.DEFAULT+data:mimeType:text/plain
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:25:13-31:29
+action#android.intent.action.SENDTO
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:26:17-71
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:26:25-68
+category#android.intent.category.DEFAULT
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:28:17-76
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:28:27-73
+data
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:30:17-55
+	android:mimeType
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:30:23-52
+receiver#a2dv606.androidproject.Notifications.NotificationReciever
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:34:9-72
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:34:19-69
+receiver#a2dv606.androidproject.BroadcastReceivers.DateLogBroadcastReceiver
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:35:9-81
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:35:19-78
+receiver#a2dv606.androidproject.BroadcastReceivers.StopNotificationBroadcastReceiver
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:36:9-90
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:36:19-87
+activity#a2dv606.androidproject.Chart.ChartActivity
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:38:9-41:48
+	android:background
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:40:13-45
+	android:theme
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:41:13-46
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:39:13-48
+activity#a2dv606.androidproject.MainWindow.MainActivity
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:42:9-49:20
+	android:theme
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:43:13-46
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:42:19-58
+receiver#a2dv606.androidproject.BroadcastReceivers.BootBroadcastReceiver
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:51:9-57:20
+	android:enabled
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:53:13-35
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:52:13-69
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:54:13-56:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:55:17-79
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:55:25-76
+receiver#a2dv606.androidproject.Widget.WidgetProvider
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:58:9-67:20
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:58:19-56
+intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:60:17-62:33
+action#android.appwidget.action.APPWIDGET_UPDATE
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:61:21-88
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:61:29-85
+meta-data#android.appwidget.provider
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:64:13-66:55
+	android:resource
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:66:17-52
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:65:17-58
+service#a2dv606.androidproject.Widget.UpdateWidgetService
+ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:69:9-72:47
+	android:enabled
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:71:13-35
+	android:exported
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:72:13-36
+	android:name
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml:70:13-55
+uses-sdk
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+		ADDED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml
+		INJECTED from D:\Android\AlloFit\water\src\main\AndroidManifest.xml

@@ -25,7 +25,7 @@ public class Intro extends AppIntro {
         addSlide(AppIntroFragment.newInstance(sliderPage1));
 
         SliderPage sliderPage2 = new SliderPage();
-        sliderPage2.setTitle("Clean App Intros");
+        sliderPage2.setTitle("Water Reminder");
         sliderPage2.setDescription("Gives a reminder according to the need of the body, after the fixed interval time till dialy minimun reqirment is not fulfiled");
         sliderPage2.setImageDrawable(R.drawable.water);
         sliderPage2.setBgColor(Color.parseColor("#424242"));
