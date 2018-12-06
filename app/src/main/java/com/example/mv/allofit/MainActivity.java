@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity  {
     RelativeLayout relativeLayout,relativeLayout2;
     SharedPreferences prefs;
     AppCompatImageView female_tick,male_tick;
-    TextView male_txt,female_txt,height_txt,weight_txt;
+    TextView male_txt,female_txt,height_txt,weight_txt, title;
     boolean female_selected=false, male_selected=false;
     AlertDialog.Builder builder_h,builder_w;
     @NonNull
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity  {
             getPermissions();
         }
         txt=findViewById(R.id.login_btn);
+        title=findViewById(R.id.title);
         female_tick=findViewById(R.id.iv_female_check);
         female=findViewById(R.id.iv_female);
         male_tick=findViewById(R.id.iv_male_check);
@@ -81,6 +82,8 @@ public class MainActivity extends AppCompatActivity  {
         height_txt.setCompoundDrawablePadding(30);
         weight_txt=findViewById(R.id.weight_txt);
         weight_txt.setCompoundDrawablePadding(30);
+        height_txt.setText("5 ft 0 in");
+        weight_txt.setText("69.5 kg");
         final ColorStateList oldcolor=female_txt.getTextColors();
         female.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +123,7 @@ public class MainActivity extends AppCompatActivity  {
                         editor.putString("gender","male");
                     editor.apply();
                     relativeLayout.setVisibility(View.INVISIBLE);
+                    title.setText("My Profile");
                     txt.setText("Start");
                     relativeLayout2.setVisibility(View.VISIBLE);
                 //    show_height_dialog();
@@ -165,7 +169,7 @@ public class MainActivity extends AppCompatActivity  {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                            height_txt.setText(height_picker.getValue()+" ft"+height_picker2.getValue()+" In");
+                            height_txt.setText(height_picker.getValue()+" ft "+height_picker2.getValue()+" in");
                             SharedPreferences.Editor editor=prefs.edit();
                             prefs=getSharedPreferences("User_Data",MODE_PRIVATE);
                             editor.putInt("height_feet",height_picker.getValue());
@@ -199,7 +203,7 @@ public class MainActivity extends AppCompatActivity  {
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        height_txt.setText(weight_picker.getValue()+"."+weight_picker2.getValue()+" kg");
+                        weight_txt.setText(weight_picker.getValue()+"."+weight_picker2.getValue()+" kg");
                         SharedPreferences.Editor editor=prefs.edit();
                         prefs=getSharedPreferences("User_Data",MODE_PRIVATE);
                         editor.putFloat("weight",Float.parseFloat(String.valueOf(weight_picker.getValue()+"."+weight_picker2.getValue())));
@@ -230,6 +234,7 @@ public class MainActivity extends AppCompatActivity  {
                         .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
                         .setIsSmartLockEnabled(!BuildConfig.DEBUG /* credentials */, true /* hints */)
+                        .setLogo(R.drawable.ic_icon)
                         .build(),
                 RC_SIGN_IN);
         // [END auth_fui_create_intent]
@@ -254,12 +259,11 @@ public class MainActivity extends AppCompatActivity  {
                 // response.getError().getErrorCode() and handle the error.
                 // ...
                 Toast.makeText(this, "Sign In Failed", Toast.LENGTH_SHORT).show();
-                if(response!=null){
-                    Toast.makeText(this, "Sign In Cancelled", Toast.LENGTH_LONG).show();
-                }
-                if(response.getError().getErrorCode()==ErrorCodes.NO_NETWORK)
+                if(response==null){
+                    Toast.makeText(this, "Sign in Cancelled", Toast.LENGTH_LONG).show();
+                }else if(response.getError().getErrorCode()==ErrorCodes.NO_NETWORK)
                 Toast.makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
-                if(response.getError().getErrorCode()==ErrorCodes.UNKNOWN_ERROR)
+                else if(response.getError().getErrorCode()==ErrorCodes.UNKNOWN_ERROR)
                     Toast.makeText(this, "Unknown Error: "+response.getError(), Toast.LENGTH_LONG).show();
             }
         }
@@ -273,7 +277,7 @@ public class MainActivity extends AppCompatActivity  {
             finish();
         }
     }
-    public void signOut() {
+ /*   public void signOut() {
         // [START auth_fui_signout]
         AuthUI.getInstance()
                 .signOut(this)
@@ -283,7 +287,7 @@ public class MainActivity extends AppCompatActivity  {
                     }
                 });
         // [END auth_fui_signout]
-    }
+    } */
 
     public void delete() {
         // [START auth_fui_delete]

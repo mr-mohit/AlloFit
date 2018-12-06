@@ -139,7 +139,7 @@
             android:layout_marginTop="67dp"
             android:layout_marginEnd="-17dp"
             android:drawableEnd="@drawable/vector_ic_drop_down_arrow"
-            android:text="TextView"
+            android:text="Textview"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -164,7 +164,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginBottom="30dp"
             android:drawableEnd="@drawable/vector_ic_drop_down_arrow"
-            android:text="TextView"
+            android:text="Textview"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold" />

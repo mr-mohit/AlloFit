@@ -125,7 +125,7 @@ public class home_remedy extends AppCompatActivity implements RemedyAdapter.Reme
     @Override
     public void OnRemedySelected(remedy Remedy) {
         Intent i=new Intent(this,Remedy_desc.class);
-        Toast.makeText(this, "Selected: "+Remedy.getName(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Selected: "+Remedy.getName(), Toast.LENGTH_LONG).show();
         Bundle bundle=new Bundle();
         bundle.putString("title",Remedy.getName());
         bundle.putString("desc",Remedy.getDesc());

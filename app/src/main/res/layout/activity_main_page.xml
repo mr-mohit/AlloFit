@@ -84,9 +84,27 @@
         android:layout_marginEnd="16dp"
         android:text="Reset"
         android:textColor="@color/red"
-        app:rippleColor="@color/md_grey_400"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:rippleColor="@color/md_grey_400" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/start_btn"
+        style="@style/Widget.MaterialComponents.Chip.Action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="StartStepCounter"
+        android:padding="10dp"
+        android:text="Start Pedometer"
+        android:textSize="18sp"
+        app:chipIcon="@drawable/ic_play"
+        app:chipIconEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reset" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

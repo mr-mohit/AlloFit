@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="General">
+       <ListPreference
+            android:defaultValue="100"
+            android:dialogTitle="@string/title_goal"
+            android:entries="@array/pref_goal_titles"
+            android:entryValues="@array/pref_goal_values"
+            android:key="@string/Key_Goal"
+            android:summary="@string/summary_goal"
+            android:title="@string/Steps_goal" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/pref_header_about">
+
+        <Preference
+            android:selectable="false"
+            android:summary="@string/summary_about" />
+
+        <Preference
+            android:summary="@string/app_version"
+            android:title="@string/title_version" />
+
+        <Preference
+            android:key="@string/key_send_feedback"
+            android:summary="@string/summary_support"
+            android:title="@string/title_send_feedback" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

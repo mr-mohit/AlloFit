@@ -34,7 +34,6 @@ public class Bmi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi);
-        //getSupportActionBar().show();
         getSupportActionBar().setTitle("Body Mass Index");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         f=new DecimalFormat("#0.#");
